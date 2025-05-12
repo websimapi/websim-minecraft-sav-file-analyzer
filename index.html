@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft SAV File Analyzer</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icon.png" type="image/png">
+</head>
+<body>
+    <div class="container">
+        <h1>Minecraft SAV File Analyzer & Editor</h1>
+        
+        <div class="upload-section">
+            <h2>Upload a .sav file</h2>
+            <input type="file" id="fileInput" accept=".sav" />
+            <button id="analyzeBtn">Analyze File</button>
+        </div>
+
+        <div class="current-file">
+            <h2>Current File: <span id="currentFileName">Centural.sav</span></h2>
+        </div>
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="hexView">Hex View</button>
+            <button class="tab-btn" data-tab="nbtView">NBT Structure</button>
+            <button class="tab-btn" data-tab="editor">Editor</button>
+        </div>
+
+        <div class="tab-content">
+            <div id="hexView" class="tab-panel active">
+                <div class="controls">
+                    <button id="prevPageHex">Previous Page</button>
+                    <span id="hexPageInfo">Page 1</span>
+                    <button id="nextPageHex">Next Page</button>
+                </div>
+                <div id="hexContent" class="hex-display"></div>
+            </div>
+
+            <div id="nbtView" class="tab-panel">
+                <div id="nbtTree" class="nbt-tree"></div>
+            </div>
+
+            <div id="editor" class="tab-panel">
+                <div class="editor-options">
+                    <h3>Edit Options</h3>
+                    <div class="edit-group">
+                        <label for="inventoryEdit">Edit Inventory</label>
+                        <button id="inventoryEdit">Open Inventory Editor</button>
+                    </div>
+                    <div class="edit-group">
+                        <label for="playerStats">Edit Player Stats</label>
+                        <button id="playerStats">Open Stats Editor</button>
+                    </div>
+                    <div class="edit-group">
+                        <label for="worldInfo">Edit World Info</label>
+                        <button id="worldInfo">Open World Editor</button>
+                    </div>
+                </div>
+                <div class="save-section">
+                    <button id="saveChanges" class="save-btn">Save Changes</button>
+                    <button id="downloadModified" class="download-btn">Download Modified File</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="inventoryModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Inventory Editor</h2>
+            <div id="inventoryItems" class="inventory-grid"></div>
+            <button id="saveInventory">Save Inventory</button>
+        </div>
+    </div>
+
+    <div id="statsModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Player Stats Editor</h2>
+            <div id="playerStatsForm"></div>
+            <button id="saveStats">Save Stats</button>
+        </div>
+    </div>
+
+    <div id="worldModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>World Info Editor</h2>
+            <div id="worldInfoForm"></div>
+            <button id="saveWorldInfo">Save World Info</button>
+        </div>
+    </div>
+
+    <script src="script.js" type="module"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
